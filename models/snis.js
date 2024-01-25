@@ -45,7 +45,7 @@ module.exports = sequelize => {
       }
     },
     tags: {
-      type: array,
+      type: DataTypes.ARRAY(DataTypes.TEXT),
       allowNull: true,
       defaultValue: null,
       comment: null,

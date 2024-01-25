@@ -98,7 +98,7 @@ module.exports = sequelize => {
       unique: "plugins_cache_key_key"
     },
     protocols: {
-      type: array,
+      type: DataTypes.ARRAY(DataTypes.TEXT),
       allowNull: true,
       defaultValue: null,
       comment: null,
@@ -107,7 +107,7 @@ module.exports = sequelize => {
       autoIncrement: false
     },
     tags: {
-      type: array,
+      type: DataTypes.ARRAY(DataTypes.TEXT),
       allowNull: true,
       defaultValue: null,
       comment: null,

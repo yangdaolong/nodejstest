@@ -23,7 +23,7 @@ module.exports = sequelize => {
       unique: "key_sets_name_key"
     },
     tags: {
-      type: array,
+      type: DataTypes.ARRAY(DataTypes.TEXT),
       allowNull: true,
       defaultValue: null,
       comment: null,

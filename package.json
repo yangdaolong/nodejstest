@@ -5,9 +5,10 @@
   "scripts": {
     "start": "cross-env NODE_ENV=dev node bin/www",
     "dev": "cross-env NODE_ENV=dev ./node_modules/.bin/nodemon bin/www",
-    "prd": "cross-env NODE_ENV=prd pm2 start bin/www",
+    "prd": "cross-env NODE_ENV=prd pm2 start bin/www --name nodejstest -i 0",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "sequelize-automate": "sequelize-automate -t js -h localhost -d kong -u kong -p kong -P 5432  -e postgres -o models"
+    "sequelize-automate": "sequelize-automate -t js -h localhost -d kong -u kong -p kong -P 5432  -e postgres -o models",
+    "modelsHandle": "node modelsHandle"
   },
   "dependencies": {
     "debug": "^4.1.1",

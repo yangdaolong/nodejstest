@@ -71,7 +71,7 @@ module.exports = sequelize => {
       autoIncrement: false
     },
     tags: {
-      type: array,
+      type: DataTypes.ARRAY(DataTypes.TEXT),
       allowNull: true,
       defaultValue: null,
       comment: null,

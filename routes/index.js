@@ -1,18 +1,6 @@
 const router = require("koa-router")();
 const { v4: uuidv4 } = require("uuid");
-
-const Sequelize = require("sequelize");
-// const sequelize = new Sequelize("postgres://kong:kong@localhost:5432/kong"); // Postgres 示例
-const sequelize = new Sequelize("kong", "kong", "kong", {
-  host: "localhost",
-  dialect:
-    "postgres" /* one of 'mysql' | 'postgres' | 'sqlite' | 'mariadb' | 'mssql' | 'db2' | 'snowflake' | 'oracle' */,
-  define: {
-    timestamps: false,
-  },
-});
-
-const tags = require("../models/tags")(sequelize);
+const models = require("../models/index");
 
 router.get("/", async (ctx, next) => {
   let res = await tags.findAll();
@@ -32,7 +20,7 @@ router.get("/json", async (ctx, next) => {
     process.env.NODE_ENV,
     process.env.MONGOOSE_URL
   );
-  let res = await tags.findAll();
+  let res = await models.plugins_model.findAll();
   // console.log(res);
   // 创建一个新用户
   // const jane = await tags.create({

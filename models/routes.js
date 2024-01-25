@@ -53,7 +53,7 @@ module.exports = sequelize => {
       }
     },
     protocols: {
-      type: array,
+      type: DataTypes.ARRAY(DataTypes.TEXT),
       allowNull: true,
       defaultValue: null,
       comment: null,
@@ -62,7 +62,7 @@ module.exports = sequelize => {
       autoIncrement: false
     },
     methods: {
-      type: array,
+      type: DataTypes.ARRAY(DataTypes.TEXT),
       allowNull: true,
       defaultValue: null,
       comment: null,
@@ -71,7 +71,7 @@ module.exports = sequelize => {
       autoIncrement: false
     },
     hosts: {
-      type: array,
+      type: DataTypes.ARRAY(DataTypes.TEXT),
       allowNull: true,
       defaultValue: null,
       comment: null,
@@ -80,7 +80,7 @@ module.exports = sequelize => {
       autoIncrement: false
     },
     paths: {
-      type: array,
+      type: DataTypes.ARRAY(DataTypes.TEXT),
       allowNull: true,
       defaultValue: null,
       comment: null,
@@ -89,7 +89,7 @@ module.exports = sequelize => {
       autoIncrement: false
     },
     snis: {
-      type: array,
+      type: DataTypes.ARRAY(DataTypes.TEXT),
       allowNull: true,
       defaultValue: null,
       comment: null,
@@ -98,7 +98,7 @@ module.exports = sequelize => {
       autoIncrement: false
     },
     sources: {
-      type: array,
+      type: DataTypes.ARRAY(DataTypes.TEXT),
       allowNull: true,
       defaultValue: null,
       comment: null,
@@ -107,7 +107,7 @@ module.exports = sequelize => {
       autoIncrement: false
     },
     destinations: {
-      type: array,
+      type: DataTypes.ARRAY(DataTypes.TEXT),
       allowNull: true,
       defaultValue: null,
       comment: null,
@@ -143,7 +143,7 @@ module.exports = sequelize => {
       autoIncrement: false
     },
     tags: {
-      type: array,
+      type: DataTypes.ARRAY(DataTypes.TEXT),
       allowNull: true,
       defaultValue: null,
       comment: null,

@@ -54,7 +54,7 @@ module.exports = sequelize => {
       unique: "acls_cache_key_key"
     },
     tags: {
-      type: array,
+      type: DataTypes.ARRAY(DataTypes.TEXT),
       allowNull: true,
       defaultValue: null,
       comment: null,
