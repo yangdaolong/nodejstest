@@ -20,7 +20,13 @@ router.get("/json", async (ctx, next) => {
     process.env.NODE_ENV,
     process.env.MONGOOSE_URL
   );
-  let res = await models.plugins_model.findAll();
+  let page = 2;
+  let pageSize = 2;
+  const offset = (page - 1) * pageSize;
+  let res = await models.tags_model.findAll({
+    limit: pageSize,
+    offset: offset,
+  });
   // console.log(res);
   // 创建一个新用户
   // const jane = await tags.create({

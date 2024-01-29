@@ -9,7 +9,15 @@ const sequelize = new Sequelize("kong", "kong", "kong", {
     "postgres" /* one of 'mysql' | 'postgres' | 'sqlite' | 'mariadb' | 'mssql' | 'db2' | 'snowflake' | 'oracle' */,
   define: {
     timestamps: false,
+    createdAt: "created_at",
+    updatedAt: "updated_at",
   },
+  dialectOptions: {
+    charset: "utf8mb4",
+    dateStrings: true,
+    typeCast: true,
+  },
+  timezone: "+08:00",
 });
 
 const db = {};
