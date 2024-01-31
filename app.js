@@ -9,7 +9,16 @@ const logger = require("koa-logger");
 const index = require("./routes/index");
 const users = require("./routes/users");
 
+require("dotenv").config({ path: ".env" });
 require("dotenv").config({ path: `.env.${process.env.NODE_ENV}` }); //config()中是配置.env文件的位置，如果在根目录，此处括号中可以留空
+
+let moment = require("moment");
+Date.prototype.toJSON = function () {
+  return moment(this).format("YYYY-MM-DD HH:mm:ss");
+};
+BigInt.prototype.toJSON = function () {
+  return this.toString();
+};
 
 // error handler
 onerror(app);
