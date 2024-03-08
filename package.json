@@ -5,10 +5,13 @@
   "scripts": {
     "start": "cross-env NODE_ENV=dev node bin/www",
     "dev": "cross-env NODE_ENV=dev ./node_modules/.bin/nodemon bin/www",
-    "prd": "cross-env NODE_ENV=prd pm2 start bin/www --name nodejstest -i 0",
+    "prd": "cross-env NODE_ENV=prd pm2 start bin/www --name nodejstest",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "sequelize-automate": "sequelize-automate -t js -h localhost -d kong -u kong -p kong -P 5432  -e postgres -o models",
-    "modelsHandle": "node modelsHandle"
+    "prisma db pull":"npx prisma db pull",
+    "prisma generate":"npx prisma generate",
+    "Prisma Migrate step 1":"npx prisma migrate dev --create-only",
+    "Prisma Migrate step 2":"prisma migrate dev"
+    
   },
   "dependencies": {
     "@prisma/client": "^5.8.1",
@@ -28,8 +31,6 @@
     "moment": "^2.30.1",
     "pg": "^8.11.3",
     "pg-hstore": "^2.3.4",
-    "sequelize": "^6.35.2",
-    "sequelize-automate": "^1.2.2",
     "uuid": "^9.0.1"
   },
   "devDependencies": {

@@ -21,5 +21,15 @@ model book {
   name      String?   @db.VarChar
   userid    Int?
   create_at DateTime? @default(now()) @db.Timestamptz(6)
+  cateid    Int?
+  cate      cate?     @relation(fields: [cateid], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "book_cate_fk")
   user      user?     @relation(fields: [userid], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "book_user_fk")
+}
+
+model cate {
+  id        Int       @id @default(autoincrement())
+  label     String?   @db.VarChar(355)
+  desc2     String?   @db.VarChar(255)
+  create_at DateTime? @db.Timestamptz(6)
+  book      book[]
 }
