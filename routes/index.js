@@ -17,12 +17,6 @@ router.get("/", async (ctx, next) => {
 });
 
 router.get("/string", async (ctx, next) => {
-    console.log(
-    "process.env.NODE_ENV2",
-    process.env.NODE_ENV,
-    process.env.MONGOOSE_URL,
-    process.env.DATABASE_URL
-  );
   try {
     let user = await prisma.$transaction(async (prisma) => {
       let res = await prisma.user.update({
@@ -63,7 +57,7 @@ router.get("/string", async (ctx, next) => {
     skip: 0, //从skip开始（不包含skip）
     take: 20, //取几条
     //下面这句话表示将与user表关联的表也查询出来
-    include: { user: true,cate:true },
+    include: { user: true, cate: true },
   });
 
   // const allUsers =
@@ -72,19 +66,14 @@ router.get("/string", async (ctx, next) => {
 });
 
 router.get("/json", async (ctx, next) => {
-  console.log(
-    "process.env.NODE_ENV2",
-    process.env.NODE_ENV,
-    process.env.MONGOOSE_URL,
-    process.env.DATABASE_URL
-  );
-
-  const allUsers = await prisma.cate.findMany({
-      include: { book: true},
-    })
-
+  const allUsers = await prisma.user.findMany({
+    include: { book: true },
+  });
 
   ctx.body = allUsers;
+});
+router.get("/env", async (ctx, next) => {
+  ctx.body = process.env;
 });
 
 module.exports = router;

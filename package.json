@@ -4,14 +4,14 @@
   "private": true,
   "scripts": {
     "start": "cross-env NODE_ENV=dev node bin/www",
-    "dev": "cross-env NODE_ENV=dev ./node_modules/.bin/nodemon bin/www",
+    "dev": "cross-env NODE_ENV=dev PORT=3001 ./node_modules/.bin/nodemon bin/www",
     "prd": "cross-env NODE_ENV=prd pm2 start bin/www --name nodejstest",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prisma db pull":"npx prisma db pull",
-    "prisma generate":"npx prisma generate",
-    "Prisma Migrate step 1":"npx prisma migrate dev --create-only",
-    "Prisma Migrate step 2":"prisma migrate dev"
-    
+    "prisma db pull": "npx prisma db pull",
+    "npx prisma db push": "npx prisma db push",
+    "prisma generate": "npx prisma generate",
+    "Prisma Migrate step 1": "npx prisma migrate dev --create-only",
+    "Prisma Migrate step 2": "prisma migrate dev"
   },
   "dependencies": {
     "@prisma/client": "^5.8.1",

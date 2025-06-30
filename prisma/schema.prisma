@@ -33,3 +33,9 @@ model cate {
   create_at DateTime? @db.Timestamptz(6)
   book      book[]
 }
+
+model product {
+  id    Int      @id @default(autoincrement())
+  name  String?  @db.VarChar(255)
+  price Decimal? @db.Decimal(10, 2)
+}
