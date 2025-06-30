@@ -4,7 +4,8 @@ const views = require("koa-views");
 const json = require("koa-json");
 const onerror = require("koa-onerror");
 const bodyparser = require("koa-bodyparser");
-const logger = require("koa-logger");
+// const logger = require("koa-logger");
+const { accessLogger, logger } = require("./utils/logger");
 
 const index = require("./routes/index");
 const users = require("./routes/users");
@@ -30,7 +31,7 @@ app.use(
   })
 );
 app.use(json());
-app.use(logger());
+app.use(accessLogger());
 app.use(require("koa-static")(__dirname + "/public"));
 
 app.use(
@@ -54,6 +55,7 @@ app.use(users.routes(), users.allowedMethods());
 // error-handling
 app.on("error", (err, ctx) => {
   console.error("server error", err, ctx);
+  logger.error("server error", err, ctx);
 });
 
 module.exports = app;
