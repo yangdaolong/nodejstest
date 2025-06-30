@@ -9,7 +9,8 @@ const moment = require("moment");
 const dayjs = require("dayjs");
 
 router.get("/", async (ctx, next) => {
-  let res = await models.tags_model.findAll();
+  let res = await prisma.user.findMany();
+
   await ctx.render("index", {
     title: "Hello Koa 2!",
     list: res,

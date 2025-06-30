@@ -8,7 +8,7 @@
     "prd": "cross-env NODE_ENV=prd pm2 start bin/www --name nodejstest",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prisma db pull": "npx prisma db pull",
-    "npx prisma db push": "npx prisma db push",
+    "prisma db push": "npx prisma db push",
     "prisma generate": "npx prisma generate",
     "Prisma Migrate step 1": "npx prisma migrate dev --create-only",
     "Prisma Migrate step 2": "prisma migrate dev"
